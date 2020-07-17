@@ -1,0 +1,2 @@
+En esta carpeta van los archivos .PATCH generados al crear parches
+Estan ordenados en sub carpetas, segun sus versiones
