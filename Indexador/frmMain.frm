@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomctl.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmMain 
    AutoRedraw      =   -1  'True
    BorderStyle     =   1  'Fixed Single
@@ -835,6 +835,22 @@ Begin VB.Form frmMain
       Top             =   4800
       Width           =   6240
    End
+   Begin VB.Label lblAnimationFrame 
+      Caption         =   "Animacion"
+      Height          =   255
+      Left            =   6120
+      TabIndex        =   114
+      Top             =   4200
+      Width           =   1695
+   End
+   Begin VB.Label lblAnimation 
+      Caption         =   "Animacion"
+      Height          =   255
+      Left            =   7800
+      TabIndex        =   113
+      Top             =   4200
+      Width           =   1695
+   End
    Begin VB.Label Label13 
       Caption         =   "Desde:"
       Height          =   255
@@ -888,7 +904,7 @@ Begin VB.Form frmMain
       Height          =   255
       Left            =   7800
       TabIndex        =   47
-      Top             =   4080
+      Top             =   3960
       Width           =   1575
    End
    Begin VB.Label Label18 
@@ -968,7 +984,7 @@ Begin VB.Form frmMain
       Height          =   255
       Left            =   6120
       TabIndex        =   24
-      Top             =   4080
+      Top             =   3960
       Width           =   1695
    End
    Begin VB.Menu FileMnu 
@@ -1129,6 +1145,7 @@ End Sub
 Private Sub animation_Timer()
     Dim path As String
     
+    lblAnimation.Caption = "Animacion Grh: " & currentGrh
     'If an animated grh is chosen, animate!
     If currentGrh <> NO_GRH Then
         If GrhData(currentGrh).NumFrames > 1 Then
@@ -1162,7 +1179,7 @@ Sub DrawFrame(FrameIndex As Integer)
             Label7.Caption = "Frame: " & FrameIndex & " / " & GrhData(currentGrh).NumFrames
 Dim GI As Integer
 GI = GrhData(currentGrh).Frames(FrameIndex)
-
+lblAnimationFrame.Caption = "Frame Grh: " & GI
 grhFrame.Enabled = True
 grhXTxt.text = GrhData(GI).sX
 grhYTxt.text = GrhData(GI).sY
